@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melody2Music - Humming to Song Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Melody2Music</h1>
+            <p class="subtitle">Transform your humming into beautiful instrumental music</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <h2>Upload Your Humming</h2>
+                <div class="file-upload">
+                    <input type="file" id="audioFile" accept="audio/*" />
+                    <label for="audioFile" class="file-label">
+                        <span id="fileName">Choose an audio file or record</span>
+                    </label>
+                </div>
+
+                <div class="record-section">
+                    <button id="recordBtn" class="btn btn-record">🎤 Record Audio</button>
+                    <span id="recordStatus" class="status"></span>
+                </div>
+            </div>
+
+            <div class="options-section">
+                <h2>Customize Your Music</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="genre">Genre</label>
+                        <select id="genre">
+                            <option value="pop">Pop</option>
+                            <option value="jazz">Jazz</option>
+                            <option value="classical">Classical</option>
+                            <option value="rock">Rock</option>
+                            <option value="electronic">Electronic</option>
+                            <option value="ambient">Ambient</option>
+                            <option value="folk">Folk</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mood">Mood</label>
+                        <select id="mood">
+                            <option value="upbeat">Upbeat</option>
+                            <option value="happy">Happy</option>
+                            <option value="melancholic">Melancholic</option>
+                            <option value="energetic">Energetic</option>
+                            <option value="calm">Calm</option>
+                            <option value="dramatic">Dramatic</option>
+                            <option value="relaxing">Relaxing</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="instruments">Instruments</label>
+                        <input type="text" id="instruments" placeholder="e.g., piano, guitar, strings" value="piano">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="duration">Duration (seconds, optional)</label>
+                        <input type="number" id="duration" min="5" max="30" step="1" placeholder="Auto">
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-section">
+                <button id="generateBtn" class="btn btn-primary" disabled>✨ Generate Music</button>
+                <div id="progress" class="progress-container" style="display: none;">
+                    <div class="progress-bar"></div>
+                    <p class="progress-text">Processing...</p>
+                </div>
+            </div>
+
+            <div id="results" class="results-section" style="display: none;">
+                <h2>Your Generated Music</h2>
+                <div class="audio-player-container">
+                    <audio id="resultAudio" controls></audio>
+                    <button id="downloadBtn" class="btn btn-secondary">⬇️ Download</button>
+                </div>
+
+                <div class="melody-features">
+                    <h3>Melody Analysis</h3>
+                    <div id="features" class="features-grid"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by CREPE, MusicGen, and FastAPI | Built with Python & Torchaudio</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
